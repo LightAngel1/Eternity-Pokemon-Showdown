@@ -6,15 +6,15 @@ exports.commands = {
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		if (!targetUser || !targetUser.connected) {
-			return this.sendReply("User " + this.targetUsername + " not found.");
+			return this.sendReply("User " + this.targetUsername + " extraviado.");
 		}
 		if (!room.users[targetUser.userid]) {
-			return this.sendReply("User " + this.targetUsername + " is not in the room " + room.id + ".");
+			return this.sendReply("User " + this.targetUsername + "no está en la Sala " + room.id + ".");
 		}
 		if (!this.can('kick', targetUser, room)) return false;
-		var msg = "kicked from room " + room.id + " by " + user.name + (target ? " (" + target + ")" : "") + ".";
-		this.addModCommand("" + targetUser.name + " was " + msg);
-		targetUser.popup("You have been " + msg);
+		var msg = " expulsado de la sala" + room.id + " por " + user.name + (target ? " (" + target + ")" : "") + ".";
+		this.addModCommand("" + targetUser.name + " era " + msg);
+		targetUser.popup("Usted ha sido " + msg);
 		targetUser.leaveRoom(room);
 	}
 };
