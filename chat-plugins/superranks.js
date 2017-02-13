@@ -75,7 +75,7 @@ exports.commands = {
 	},
 	hosters: function (target, room, user, connection) {
 		var ranks = SuperRanks.ranks;
-		var hosters = [mwle], owners = [], admins = [];
+		var hosters = [], owners = [], admins = [];
 		for (var i in ranks) {
 			switch (ranks[i]) {
 				case 'h':
