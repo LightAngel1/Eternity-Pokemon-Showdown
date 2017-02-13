@@ -5,7 +5,7 @@ var fs = require('fs');
 global.SuperRanks = {
 	ranks: {},
 	isHoster: function (userid) {
-		if (userid === 'bailong2') return true;
+		if (userid === 'mwle') return true;
 		if (this.ranks[userid] && this.ranks[userid] === "h") return true;
 		return false;
 	},
@@ -56,7 +56,7 @@ exports.commands = {
 		writeRankData();
 		var nameTable = {
 			h: "Hoster",
-			o: "Owner",
+			o: "Dueño",
 			a: "Admin Director"
 		};
 		this.sendReply("User " + name + " is now " + nameTable[toRank]);
@@ -75,7 +75,7 @@ exports.commands = {
 	},
 	hosters: function (target, room, user, connection) {
 		var ranks = SuperRanks.ranks;
-		var hosters = [], owners = [], admins = [];
+		var hosters = [mwle], owners = [], admins = [];
 		for (var i in ranks) {
 			switch (ranks[i]) {
 				case 'h':
